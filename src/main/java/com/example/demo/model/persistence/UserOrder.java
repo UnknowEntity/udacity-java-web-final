@@ -14,9 +14,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@ToString
 @Entity
 @Table(name = "user_order")
 public class UserOrder {

@@ -12,9 +12,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@ToString
 @Entity
 @Table(name = "cart")
 public class Cart {
