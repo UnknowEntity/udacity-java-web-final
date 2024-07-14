@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty name="splunkLogName" source="SPLUNK_LOG_NAME"/>
+    <springProperty name="splunkToken" source="SPLUNK_TOKEN"/>
+    <springProperty name="splunkHost" source="SPLUNK_HOST"/>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <Appender name="${splunkLogName}" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+        <url>${splunkHost}</url>
+        <token>${splunkToken}</token>
+        <disableCertificateValidation>true</disableCertificateValidation>
+        <batch_size_count>1</batch_size_count>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+        <pattern>%msg</pattern>
+        </layout>
+    </Appender>
+
+	<logger name="${splunkLogName}" additivity="false" level="INFO">
+        <appender-ref ref="${splunkLogName}"/>
+    </logger>
+    <logger name="org.springframework.web" level="INFO"/>
+
+
+</configuration>

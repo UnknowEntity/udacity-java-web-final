@@ -127,6 +127,25 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
+	public void createUserFailedUsernameCheck() throws Exception {
+		User user = getDefaultUser();
+
+		user.setUsername(Integer.toString(random.nextInt(1000)));
+
+		user = createUser(user);
+
+		CreateUserRequest createUserRequest = new CreateUserRequest();
+		createUserRequest.setUsername(user.getUsername());
+		createUserRequest.setPassword("Test@12345");
+		createUserRequest.setConfirmPassword(createUserRequest.getPassword());
+
+		this.mockMvc.perform(post("/api/user/create")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(Obj.writeValueAsBytes(createUserRequest))).andDo(print())
+				.andExpect(status().isBadRequest());
+	}
+
+	@Test
 	public void createUserFailedPasswordCheck() throws Exception {
 		CreateUserRequest createUserRequest = new CreateUserRequest();
 
