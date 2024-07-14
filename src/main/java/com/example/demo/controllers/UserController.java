@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.splunk.logging.*;
@@ -36,13 +38,28 @@ public class UserController {
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
-		return ResponseEntity.of(userRepository.findById(id));
+		Optional<User> findUserResult = userRepository.findById(id);
+
+		if (!findUserResult.isPresent()) {
+			logger.error("FIND_USER_BY_ID_FAILED: ID_NOT_FOUND");
+			return ResponseEntity.notFound().build();
+		}
+
+		logger.info("FIND_USER_BY_ID_SUCCESS");
+		return ResponseEntity.ok(findUserResult.get());
 	}
 	
 	@GetMapping("/{username}")
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
-		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
+
+		if (user == null) {
+			logger.error("FIND_USER_BY_USERNAME_FAILED: USERNAME_NOT_FOUND");
+			return ResponseEntity.notFound().build();
+		}
+
+		logger.info("FIND_USER_BY_USERNAME_SUCCESS");
+		return ResponseEntity.ok(user);
 	}
 	
 	@PostMapping("/create")
