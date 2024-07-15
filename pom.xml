@@ -117,6 +117,16 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://http://ec2-52-91-54-121.compute-1.amazonaws.com:8888/</url>
+					<server>TomcatServer</server>
+					<path>/api/v1</path>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
