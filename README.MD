@@ -14,7 +14,7 @@ I have also install the jacoco plugin so there is a test coverage file that gene
 
 Here is the latest result.
 
-![JACOCO TEST COVERAGE REPORT](/extra/test_jacoco/index.html)
+[JACOCO TEST COVERAGE REPORT](/extra/test_jacoco/index.html)
 
 Here is the command line I use to generate the jacoco coverage report.
 
@@ -52,4 +52,4 @@ SPLUNK DASHBOARD CODE
 
 Here is the log of the finish pipelines.
 
-![jenkins.log](/logs/jenkins.log)
+[jenkins.log](/logs/jenkins.log)
