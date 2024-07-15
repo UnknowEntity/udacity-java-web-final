@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class ApplicationConfiguration {
     private static String SPLUNK_LOG_NAME;
 
-    @Value("${SPLUNK_LOG_NAME}")
+    @Value("${SPLUNK_LOG_NAME:SPLUNK}")
     public void setSplunkLogName(String SPLUNK_LOG_NAME) {
         ApplicationConfiguration.SPLUNK_LOG_NAME = SPLUNK_LOG_NAME;
     }

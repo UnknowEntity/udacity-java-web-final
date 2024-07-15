@@ -8,7 +8,7 @@ public class SecurityConstants {
 
     private static String SECRET;
 
-    @Value("${SECRET}")
+    @Value("${SECRET:temp}")
     public void setSecret(String SECRET) {
         SecurityConstants.SECRET = SECRET;
     }
@@ -19,7 +19,7 @@ public class SecurityConstants {
 
     private static long EXPIRATION_TIME;
 
-    @Value("${EXPIRATION_TIME}")
+    @Value("${EXPIRATION_TIME:864_000_000}")
     public void setExpirationTime(String EXPIRATION_TIME) {
         SecurityConstants.EXPIRATION_TIME = Long.parseLong(EXPIRATION_TIME.replaceAll("_", ""));
     }
