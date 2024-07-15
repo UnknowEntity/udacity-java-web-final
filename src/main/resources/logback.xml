@@ -15,7 +15,7 @@
         </layout>
     </appender> 
 
-    <Appender name="${splunkLogName}" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+    <!-- <Appender name="${splunkLogName}" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
         <url>${splunkHost}</url>
         <token>${splunkToken}</token>
         <disableCertificateValidation>true</disableCertificateValidation>
@@ -23,10 +23,10 @@
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%msg</pattern>
         </layout>
-    </Appender>
+    </Appender> -->
 
 	<logger name="${splunkLogName}" additivity="false" level="INFO">
-        <appender-ref ref="${splunkLogName}"/>
+        <!-- <appender-ref ref="${splunkLogName}"/> -->
         <appender-ref ref="STDOUT" />
     </logger>
     
