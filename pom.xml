@@ -122,7 +122,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://ec2-52-91-54-121.compute-1.amazonaws.com:8888</url>
+					<url>http://172.31.20.207:8888</url>
 					<server>TomcatServer</server>
 					<path>/myApp</path>
 				</configuration>
