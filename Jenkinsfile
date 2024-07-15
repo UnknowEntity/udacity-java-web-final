@@ -9,7 +9,7 @@ pipeline {
 
         stage('Deploy') { 
             steps {
-                sh 'mvn -B -P deploy-profile-from-pom-xml tomcat7:deploy-only' 
+                sh 'mvn -B -P tomcat7:deploy-only -e' 
             }
         }
     }
