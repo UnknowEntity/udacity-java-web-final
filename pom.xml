@@ -124,7 +124,7 @@
 				<configuration>
 					<url>http://ec2-52-91-54-121.compute-1.amazonaws.com:8888</url>
 					<server>TomcatServer</server>
-					<path>/api/v1</path>
+					<path>/myApp</path>
 				</configuration>
 			</plugin>
 		</plugins>
